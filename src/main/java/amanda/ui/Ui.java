@@ -63,6 +63,10 @@ public class Ui {
         System.out.println("     Here are the tasks in your list, now stop disturbing me:");
     }
 
+    public void showFindCommand() {
+        System.out.println("     Here are the tasks I found in your list, now stop disturbing me:");
+    }
+
     /**
      * Print MarkCommand interactions.
      * @param tasks current task list.
@@ -74,11 +78,11 @@ public class Ui {
     }
 
     /**
-     * Print UnmarkCommand interactions.
+     * Print UnMarkCommand interactions.
      * @param tasks current task list.
      * @param taskNo index of task to be marked as not done.
      */
-    public void showUnmarkCommand(TaskList tasks, int taskNo) {
+    public void showUnMarkCommand(TaskList tasks, int taskNo) {
         System.out.println("     I knew it! you didn't actually finish it.");
         System.out.println("        " + tasks.getList().get(taskNo - 1));
     }

@@ -1,12 +1,6 @@
 package main.java.amanda.manager;
 
-import main.java.amanda.command.Command;
-import main.java.amanda.command.AddCommand;
-import main.java.amanda.command.ListCommand;
-import main.java.amanda.command.MarkCommand;
-import main.java.amanda.command.UnmarkCommand;
-import main.java.amanda.command.DeleteCommand;
-import main.java.amanda.command.ExitCommand;
+import main.java.amanda.command.*;
 import main.java.amanda.exception.AmandaException;
 
 
@@ -42,12 +36,14 @@ public class QueryInterpreter {
                 throw new AmandaException("\nDon't call me up and say nothing!\n");
             case "task":
                 return new AddCommand(generator.make(input));
+            case "find":
+                return new FindCommand(input);
             case "list":
                 return new ListCommand();
             case "mark":
                 return new MarkCommand(Integer.parseInt(getIndex(input)));
-            case "unmark":
-                return new UnmarkCommand(Integer.parseInt(getIndex(input)));
+            case "unMark":
+                return new UnMarkCommand(Integer.parseInt(getIndex(input)));
             case "delete":
                 return new DeleteCommand(Integer.parseInt(getIndex(input)));
             default:
@@ -69,7 +65,7 @@ public class QueryInterpreter {
         if (type.equals("todo") | type.equals("deadline") | type.equals("event")) {
             return "task";
         } else if (type.equals("list") | type.equals("mark") | type.equals("unmark")
-                | type.equals("delete") | type.equals("bye")) {
+                | type.equals("delete") | type.equals("bye") | type.equals("find")) {
             return type;
         } else {
             return "not a command";

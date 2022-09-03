@@ -6,15 +6,15 @@ import main.java.amanda.manager.StoreManager;
 import main.java.amanda.exception.AmandaException;
 
 /**
- * UnmarkCommand is a command that unmark a task that is done.
+ * UnMarkCommand is a command that unMark a task that is done.
  */
-public class UnmarkCommand extends Command {
+public class UnMarkCommand extends Command {
 
     /**
-     * Constructor for UnmarkCommand class
-     * @param taskNo the index of the task which the user wants to unmark.
+     * Constructor for unMarkCommand class
+     * @param taskNo the index of the task which the user wants to unMark.
      */
-    public UnmarkCommand(int taskNo) {
+    public UnMarkCommand(int taskNo) {
         super(null, taskNo);
     }
 
@@ -32,7 +32,7 @@ public class UnmarkCommand extends Command {
         }
         tasks.getList().get(taskNo - 1).undoTask(); // mark the current task as not done.
         store.store(tasks); // update the storage with the new state of the task.
-        ui.showUnmarkCommand(tasks, taskNo); // print messages for UnmarkCommand.
+        ui.showUnMarkCommand(tasks, taskNo); // print messages for unMarkCommand.
 
     }
 }
