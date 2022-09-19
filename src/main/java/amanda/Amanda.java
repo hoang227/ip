@@ -17,7 +17,7 @@ public class Amanda {
 
 	/**
 	 * Constructor of the Amanda class.
-	 * @param filePath Path to the storage file of amanda.
+	 * @param filePath Path tothe storage file of amanda.
 	 */
 	public Amanda(String filePath) {
 		store = new StoreManager(filePath);
