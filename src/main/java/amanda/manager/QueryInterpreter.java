@@ -11,11 +11,17 @@ import amanda.task.Tag;
  * QueryInterpreter is interprets/parse the user input.
  */
 public class QueryInterpreter {
+
     /**
      * Interprets the user input.
      * @param input one line of the user input command.
      * @return command object that can execute what is interpreted from the user input.
-     *      and cannot be interpreted by the method.
+     * @throws InvalidCommandException when invalid command is entered
+     * @throws InvalidDateFormatException when date entered is in the wrong format
+     * @throws EmptyDateException when there is no date entered
+     * @throws InvalidDescriptionException when the task description is empty
+     * @throws InvalidIndexException when the index entered is invalid
+     * @throws InvalidTagException when the tag given is in the wrong format
      */
     public static Command interpret(String input) throws InvalidCommandException, InvalidDateFormatException,
             EmptyDateException, InvalidDescriptionException, InvalidIndexException, InvalidTagException {
@@ -31,7 +37,7 @@ public class QueryInterpreter {
         case "tag" :
             return new TagCommand(TaskList.getList().get(getIndex(input) - 1), getTag(input), getIndex(input));
         case "listtag" :
-            return new ListTagCommand(TaskList.getList().get(getIndex(input) - 1), getIndex(input));
+            return new ListTagCommand(TaskList.getList().get(getIndex(input) - 1));
         case "find":
             return new FindCommand(input);
         case "mark":
@@ -82,6 +88,13 @@ public class QueryInterpreter {
         }
     }
 
+    /**
+     * Make a tag from user input
+     * @param input one line of the user input.
+     * @return A tag object created based on the user input
+     * @throws InvalidIndexException when the index entered is invalid.
+     * @throws InvalidTagException when the user input is in the wrong format
+     */
     public static Tag getTag(String input) throws InvalidIndexException, InvalidTagException {
         assert !input.isEmpty() : "Input is empty.";
         StringTokenizer tokens = new StringTokenizer(input, " ");

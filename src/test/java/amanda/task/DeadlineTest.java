@@ -1,4 +1,5 @@
-import amanda.task.Deadline;
+package amanda.task;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,7 +1,6 @@
 package amanda.manager;
 
 import amanda.exception.AmandaException;
-import amanda.manager.TaskMaker;
 import amanda.task.Todo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
