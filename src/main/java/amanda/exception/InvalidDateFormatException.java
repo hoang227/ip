@@ -1,8 +1,5 @@
 package amanda.exception;
 
-/**
- * InvalidDateFormatException is thrown when the user enter a date in the wrong format.
- */
 public class InvalidDateFormatException extends AmandaException {
 
 	public InvalidDateFormatException() {

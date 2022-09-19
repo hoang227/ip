@@ -1,8 +1,5 @@
 package amanda.exception;
 
-/**
- * InvalidCommandException is thrown when user enter a keyword that is not a command
- */
 public class InvalidCommandException extends AmandaException {
 
 	public InvalidCommandException() {
